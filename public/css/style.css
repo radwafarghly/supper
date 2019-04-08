@@ -590,3 +590,8 @@ label.valid {
     margin-bottom: 10px; } }
 
 /*# sourceMappingURL=style.css.map */
+.logo-title{
+  text-align: center;
+    /* padding: 11px; */
+    font-size: 22px;
+}

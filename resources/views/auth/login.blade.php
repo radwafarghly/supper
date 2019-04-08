@@ -74,52 +74,52 @@
         <!-- Sing in  Form -->
         <section class="sign-in">
             <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="{{ asset('images/super.png')}}" alt="sing up image"></figure>
+                <div class="signin-content row">
+                    
+                    <div class="signin-form">
+                            <h2 class="form-title"> {{ __('auth.login') }}</h2>
+                            <form class="register-form" id="login-form" method="POST" action="{{ route('login') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="email"></label>
+                                    <input type="email" name="email" id="email" placeholder="{{ __('auth.email-address') }}" value="{{ old('email') }}" required autofocus/>
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="password"></label>
+                                    <input type="password" name="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"  placeholder="{{ __('auth.password') }}" required/>
+                                    @if ($errors->has('password'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" name="remember" id="remember" class="agree-term"/>
+                                    <label for="remember" class="label-agree-term"><span><span></span></span>   {{ __('auth.rememberme') }}</label>
+                                    <a href="{{ route('password.request') }}" class="signup-image-link"> {{ __('auth.forgot-password') }}</a>           
+                                </div>
+                                
+                                <div class="form-group form-button">
+                                    <input type="submit" name="signin" id="signin" class="form-submit" value=" {{ __('auth.login') }}"/>
+                                    <br>
+                                    <span>ليس لديك حساب </span>
+
+                                    <a href="{{ route('register') }}" class="signup-image-link">{{ __('auth.create-account') }}</a>
+                                </div>
+                            </form>                        
+                    </div>
+                    <div class=" col-md-6">
+                        <h3 class="logo-title">Super Hero</h3>
+                        <img src="{{ asset('images/su.png')}}" alt="sing up image">
                         
                     </div> 
-
-                    <div class="signin-form">
-                        <h2 class="form-title"> {{ __('auth.login') }}</h2>
-                        <form class="register-form" id="login-form" method="POST" action="{{ route('login') }}">
-                        @csrf
-                            <div class="form-group">
-                                <label for="email"></label>
-                                <input type="email" name="email" id="email" placeholder="{{ __('auth.email-address') }}" value="{{ old('email') }}" required autofocus/>
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <label for="password"></label>
-                                <input type="password" name="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"  placeholder="{{ __('auth.password') }}" required/>
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="remember" id="remember" class="agree-term"/>
-                                <label for="remember" class="label-agree-term"><span><span></span></span>   {{ __('auth.rememberme') }}</label>
-                                <a href="{{ route('password.request') }}" class="signup-image-link"> {{ __('auth.forgot-password') }}</a> 
-                                
-                                
-                            </div>
-                            
-                            <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value=" {{ __('auth.login') }}"/>
-                                <br>
-                                <span>ليس لديك حساب </span>
-
-                                <a href="{{ route('register') }}" class="signup-image-link">{{ __('auth.create-account') }}</a>
-                            </div>
-                        </form>                        
-                    </div>
                 </div>
+                
             </div>
         </section>
 
