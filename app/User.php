@@ -8,10 +8,10 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
     use Notifiable, HasMediaTrait;
-
+    public $galleryMediaCollection="skills-gallery";
     /**
      * The attributes that are mass assignable.
      *

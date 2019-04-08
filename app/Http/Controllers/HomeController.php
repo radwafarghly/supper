@@ -23,6 +23,29 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user=\Auth::user();
+
+        return view('home',compact('user'));
+    }
+
+    public function galleryUpload(Request $request)
+    {
+
+        try {
+            if ($request->has('file')) {
+
+                $this->validate($request, [
+                    'file' => 'mimes:jpg,jpeg,png|max:3000',
+                ]);
+
+                $user=\Auth::user();
+                $user->addMedia($request->file('file'))->withCustomProperties(['root' => 'user_' . $user->id])->toMediaCollection($user->galleryMediaCollection);
+                $message="ssuu";
+            }
+        } catch (\Exception $exception) {
+            $message="ff";
+
+        }
+        return response()->json($message);
     }
 }
