@@ -13,12 +13,15 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'يوجد خطا ما في الاسم او كلمه السر ',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'email-address' => 'البريد الالكتروني',
     'create-account' => 'انشاء حساب جديد',
     'login' =>'تسجيل الدخول',
     'password' =>'كلمه السر',
     'rememberme' =>'تذكرني',
-    'forgot-password' =>'نسيت كلمه السر؟'
+    'forgot-password' =>'نسيت كلمه السر؟',
+    'name'=>'الاسم رباعي',
+    'user-name'=>'اسم المستخدم',
+    'password_confirmation'=>'تاكيد كلمه السر '
 ];

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
 <div class="container">
@@ -88,4 +88,82 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+            <div class="login100-more col-md-6" style="background-image: url('images/loginphoto.jpg');">
+				</div>
+				<form class="login100-form validate-form"  method="POST" action="{{ route('register') }}">
+                @csrf
+
+					<span class="login100-form-title p-b-43">
+                       {{ __('auth.create-account') }}
+                    </span>
+
+
+
+                    <div class="wrap-input100 validate-input">
+                            <input id="name" type="text" class=" input100 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                            <span class="focus-input100"></span>
+                            <span class="label-input100">{{ __('auth.name') }}</span>
+
+                                @if ($errors->has('name'))
+                                    <strong>{{ $errors->first('name') }}</strong>
+                            @endif
+
+                    </div>
+                    <div class="wrap-input100 validate-input">
+                            <input id="user-name" type="text" class=" input100 {{ $errors->has('user-user-name') ? ' is-invalid' : '' }}" name="user-name" value="{{ old('user-name') }}" required autofocus>
+                            <span class="focus-input100"></span>
+                            <span class="label-input100">{{ __('auth.user-name') }}</span>
+
+                                @if ($errors->has('user-name'))
+                                    <strong>{{ $errors->first('user-name') }}</strong>
+                            @endif
+                    </div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="email" name="email" value="{{ old('email') }}" required autofocus>
+						<span class="focus-input100"></span>
+                        <span class="label-input100">{{ __('auth.email-address') }}</span>
+                    </div>
+                        @if ($errors->has('email'))
+                            <strong class="worng">{{ $errors->first('email') }}</strong>
+                        @endif
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="password" required>
+						<span class="focus-input100"></span>
+                        <span class="label-input100">{{ __('auth.password') }}</span>
+                    </div>
+                       @if ($errors->has('password'))
+                        <strong class="worng">{{ $errors->first('password') }}</strong>
+                       @endif
+
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input type="password" class="input100" name="password_confirmation" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">{{ __('auth.password_confirmation') }}</span>
+                    </div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" name="signin">
+                        {{ __('auth.create-account') }}
+						</button>
+					</div>
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt1">
+                        <a href="{{ route('login') }}">{{ __('auth.login') }}</a>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+</div>
+
+
+
 @endsection

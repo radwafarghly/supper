@@ -69,58 +69,63 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>--}}
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+            <div class="login100-more" style="background-image: url('images/loginphoto.jpg');">
+				</div>
+				<form class="login100-form validate-form"  method="POST" action="{{ route('login') }}">
+                @csrf
 
-        <!-- Sing in  Form -->
-        <section class="sign-in">
-            <div class="container">
-                <div class="signin-content row">
-                    
-                    <div class="signin-form">
-                            <h2 class="form-title"> {{ __('auth.login') }}</h2>
-                            <form class="register-form" id="login-form" method="POST" action="{{ route('login') }}">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="email"></label>
-                                    <input type="email" name="email" id="email" placeholder="{{ __('auth.email-address') }}" value="{{ old('email') }}" required autofocus/>
-                                    @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="password"></label>
-                                    <input type="password" name="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"  placeholder="{{ __('auth.password') }}" required/>
-                                    @if ($errors->has('password'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="remember" id="remember" class="agree-term"/>
-                                    <label for="remember" class="label-agree-term"><span><span></span></span>   {{ __('auth.rememberme') }}</label>
-                                    <a href="{{ route('password.request') }}" class="signup-image-link"> {{ __('auth.forgot-password') }}</a>           
-                                </div>
-                                
-                                <div class="form-group form-button">
-                                    <input type="submit" name="signin" id="signin" class="form-submit" value=" {{ __('auth.login') }}"/>
-                                    <br>
-                                    <span>ليس لديك حساب </span>
+					<span class="login100-form-title p-b-43">
+                       {{ __('auth.login') }}
+                    </span>
 
-                                    <a href="{{ route('register') }}" class="signup-image-link">{{ __('auth.create-account') }}</a>
-                                </div>
-                            </form>                        
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="email" name="email" value="{{ old('email') }}" required autofocus>
+						<span class="focus-input100"></span>
+                        <span class="label-input100">{{ __('auth.email-address') }}</span>
                     </div>
-                    <div class=" col-md-6">
-                        <h3 class="logo-title">Super Hero</h3>
-                        <img src="{{ asset('images/su.png')}}" alt="sing up image">
-                        
-                    </div> 
-                </div>
-                
-            </div>
-        </section>
+                        @if ($errors->has('email'))
+                            <strong class="worng">{{ $errors->first('email') }}</strong>
+                        @endif
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="password" required>
+						<span class="focus-input100"></span>
+                        <span class="label-input100">{{ __('auth.password') }}</span>
+
+                    </div>
+                       @if ($errors->has('password'))
+                        <strong class="worng">{{ $errors->first('password') }}</strong>
+                       @endif
+
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+                            {{ __('auth.rememberme') }}
+							</label>
+						</div>
+						<div>
+							<a href="{{ route('password.request') }}" class="txt1">
+                            {{ __('auth.forgot-password') }}
+							</a>
+						</div>
+					</div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" name="signin">
+                        {{ __('auth.login') }}
+						</button>
+					</div>
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt1">
+                        <a href="{{ route('register') }}">{{ __('auth.create-account') }}</a>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+</div>
 
 @endsection
