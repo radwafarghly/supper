@@ -59,6 +59,12 @@
         <script src="{{ asset('vendor/countdowntime/countdowntime.js')}}"></script>
     <!--===============================================================================================-->
         <script src="{{ asset('js/main.js')}}"></script>
+                    @yield('script')
 
+        <script>
+            $(".selection-2").select2({
+            // minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect2')
+        });</script>
 </body>
 </html>

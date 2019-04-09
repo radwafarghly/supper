@@ -16,7 +16,7 @@ class EditUsersTable extends Migration
         //
         Schema::table('users', function (Blueprint $table) {
             $table->string('slug')->unique();
-            $table->string('address')->nullable();
+            $table->longtext('address')->nullable();
             $table->string('phone',10)->unique()->nullable();
             $table->string('fb-link')->nullable();
             $table->string('twitter-link')->nullable();

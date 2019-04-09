@@ -23,5 +23,9 @@ return [
     'forgot-password' =>'نسيت كلمه السر؟',
     'name'=>'الاسم رباعي',
     'user-name'=>'اسم المستخدم',
-    'password_confirmation'=>'تاكيد كلمه السر '
+    'password_confirmation'=>'تاكيد كلمه السر ',
+    'address'=>'العنوان',
+    'education' =>'المؤهل الدراسي',
+    'birth_year' =>'سنه الميلاد',
+    'disability-type' =>'نوع الأعاقه'
 ];

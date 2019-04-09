@@ -15,8 +15,8 @@ class EditUsersTable extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->year('birth_year');
-            $table->string('education')->nullable();
+            $table->year('birth_year')->nullable();
+            $table->longtext('education')->nullable();
             $table->string('disability-type')->nullable();
         });
     }
