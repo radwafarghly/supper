@@ -95,10 +95,10 @@
 
 <div class="limiter">
 		<div class="container-login100">
-			<div class="row wrap-login100">
-            <div class="col-md-4 login100-more" style="background-image: url('images/loginphoto.jpg');">
+			<div class="wrap-login100">
+            <div class="login100-more" style="background-image: url('images/loginphoto.jpg');">
                 </div>
-                <div class="col-md-8">
+
                     <form class="login100-form validate-form"  method="POST" action="{{ route('register') }}">
                 @csrf
 
@@ -151,7 +151,7 @@
                             @endif
                     </div>
 
-                    <div class="wrap-input100 validate-input">
+                           <label class="">{{ __('auth.birth_year') }}</label>
                             <select id="birth_year" type="text" class="input100 selection-2 " name="birth_year" value="{{ old('birth_year') }}" required >
                               <option value="2018">2018</option>
                                 <option value="2017">2017</option>
@@ -268,10 +268,9 @@
                                 <option value="1906">1906</option>
                                 <option value="1905">1905</option>
                             </select>
-                            <span class="focus-input100"></span>
-                           <span class="label-input100">{{ __('auth.birth_year') }}</span>
-                    </div>
-                     <div class="wrap-input100 validate-input">
+
+                            <label class="">{{ __('auth.disability-type') }}</label>
+
                             <select id="disability-type" type="text" class="input100 selection-2 " name="disability-type" value="{{ old('disability-type') }}" required >
                                 <option value="1909">1909</option>
                                 <option value="1908">1908</option>
@@ -279,9 +278,7 @@
                                 <option value="1906">1906</option>
                                 <option value="1905">1905</option>
                             </select>
-                            <span class="focus-input100"></span>
-                           <span class="label-input100">{{ __('auth.disability-type') }}</span>
-                    </div>
+
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<input class="input100" type="password" name="password" required>
 						<span class="focus-input100"></span>
@@ -309,8 +306,8 @@
 					</div>
 				</form>
                 </div>
-				
-			</div>
+
+
 		</div>
 </div>
 <div id="dropDownSelect2"></div>
